@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Anto_Plagiarism extends Model
+class Anti_Plagiarism extends Model
 {
     use HasFactory;
 

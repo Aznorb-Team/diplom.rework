@@ -49,7 +49,7 @@ class User extends Authenticatable
     ];
     
     public function authors_application(){
-        return $this->belongsToMany(User::class, 'application_author', 'authors_id', 'application_id');
+        return $this->belongsToMany(User::class, 'applications_authors', 'authors_id', 'application_id');
     }
 
     public function user_application(){
@@ -65,9 +65,9 @@ class User extends Authenticatable
     }
     public function role()
     {
-        return $this->hasOne(Role::class, 'title', 'role_id');
+        return $this->hasOne(Role::class, 'id', 'role_id');
     }
     public function direction(){
-        return $this->hasOne(Direction::class, 'title', 'direction_id');
+        return $this->hasOne(Direction::class, 'id', 'direction_id');
     }
 }

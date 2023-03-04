@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-
+@section('title', 'Sign Up')
 @section('content')
 <!-- Loader starts-->
 <div class="loader-wrapper">

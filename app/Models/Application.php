@@ -9,7 +9,7 @@ class Application extends Model
 {
     use HasFactory;
 
-    protected $table = 'application';
+    protected $table = 'applications';
 
     protected $fillable = [
         'title',
@@ -36,18 +36,18 @@ class Application extends Model
         return $this->hasOne(User::class, 'id','employee_id');
     }
     public function authors(){
-        return $this->belongsToMany(User::class, 'application_author', 'application_id', 'authors_id');
+        return $this->belongsToMany(User::class, 'applications_authors', 'application_id', 'authors_id');
     }
     public function reviews(){
-        return $this->belongsToMany(Review::class, 'application_review', 'application_id', 'review_id');
+        return $this->belongsToMany(Review::class, 'applications_reviews', 'application_id', 'review_id');
     }
     public function status_application()
     {
-        return $this->hasOne(Status_Application::class, 'id');
+        return $this->hasOne(Status_Application::class, 'id', 'status_application_id');
     }
     public function status_work()
     {
-        return $this->hasOne(Status_Work::class, 'id');
+        return $this->hasOne(Status_Work::class, 'id', 'status_work_id');
     }
     public function mode()
     {

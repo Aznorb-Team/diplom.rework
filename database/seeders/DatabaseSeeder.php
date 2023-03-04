@@ -85,5 +85,19 @@ class DatabaseSeeder extends Seeder
         DB::table('status_work')->insert([
             'title' => 'В работе',
         ]);
+
+        DB::table('types')->insert([
+            'title' => 'type_1',
+        ]);
+        DB::table('types')->insert([
+            'title' => 'type_2',
+        ]);
+
+        DB::table('directions')->insert([
+            'title' => 'Математика',
+        ]);
+        DB::table('directions')->insert([
+            'title' => 'Информатика',
+        ]);
     }
 }

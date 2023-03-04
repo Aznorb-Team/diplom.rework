@@ -70,10 +70,10 @@
     <div class="page-body-wrapper sidebar-icon">
       <!-- Page Sidebar Start-->
       <header class="main-nav">
-        <div class="sidebar-user text-center"><img class="img-90 rounded-circle" src="../assets/images/dashboard/1.png" alt="">
+        <div class="sidebar-user text-center"><img class="img-90 rounded-circle" src="{{asset('assets/images/dashboard/1.png')}}" alt="">
           <div class="badge-bottom"></div><a href="{{route('admin')}}">
             <h6 class="mt-3 f-14 f-w-600">{{auth()->user()->name}}</h6></a>
-          <p class="mb-0 font-roboto">{{auth()->user()->role}}</p>
+          <p class="mb-0 font-roboto">{{auth()->user()->role->title}}</p>
           {{-- <ul>
             <li><span><span class="counter">19.8</span>k</span>
               <p>Follow</p>
@@ -96,7 +96,7 @@
                 </li>
                 <li class="sidebar-main-title">
                   <div>
-                    <h6>Пользовательская доска</h6>
+                    <h6>Панель пользователя</h6>
                   </div>
                 </li>
                 <li>
@@ -111,10 +111,27 @@
                 </li>
                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="book-open"></i><span>Заявки</span></a>
                   <ul class="nav-submenu menu-content">
-                    <li><a href="#">Подача заявки</a></li>
-                    <li><a href="#">Список поданных заявок</a></li>
+                    <li><a href="{{route('form_add_application')}}">Подача заявки</a></li>
+                    <li><a href="{{route('application.list')}}">Список поданных заявок</a></li>
                   </ul>
                 </li>
+                @if(auth()->user()->role_id >= 2)
+                <li class="sidebar-main-title">
+                  <div>
+                    <h6>Панель эксперта</h6>
+                  </div>
+                </li>
+                <li>
+                  <a class="nav-link menu-title link-nav active" href="{{route('antiplagiat.application_list')}}">
+                    <i data-feather="book-open"></i>
+                    <span>Список поданных заявок</span>
+                    <div class="according-menu">
+                      <i class="book-open">
+                      </i>
+                    </div>
+                  </a>
+                </li>
+                @endif
             </div>
             <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
           </div>

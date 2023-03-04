@@ -17,6 +17,6 @@ class Review extends Model
     ];
 
     public function application(){
-        return $this->belongsToMany(Application::class, 'application_review', 'review_id', 'application_id');
+        return $this->belongsToMany(Application::class, 'applications_reviews', 'review_id', 'application_id');
     }
 }

@@ -9,7 +9,7 @@ class Survey extends Model
 {
     use HasFactory;
 
-    protected $table = 'survey';
+    protected $table = 'surveys';
 
     protected $fillable = [
         'title',
