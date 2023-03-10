@@ -19,7 +19,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleFormControlInput1">Персональный номер</label>
-                                    <input class="form-control" id="exampleFormControlInput1" type="text" name="id" value="{{$application->id}}" disabled>
+                                    <input class="form-control input-air-primary" id="exampleFormControlInput1" type="text" name="id" value="{{$application->id}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleFormControlInput1">Наименование</label>
-                                    <input class="form-control" id="exampleFormControlInput1" type="text" value="{{$application->title}}" disabled>
+                                    <input class="form-control input-air-primary" id="exampleFormControlInput1" type="text" value="{{$application->title}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="link_teach_mat" value="{{$application->teaching_materials->link}}" hidden/>
-                                    <input type="button" class="btn btn-outline-primary" id="view_teach_mat" value="Показать методический материал"/><br>
+                                    <input type="button" class="btn btn-outline-primary " id="view_teach_mat" value="Показать методический материал"/><br>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label class="form-label" for="exampleFormControlInput1">Заимствование</label>
-                                        <input class="form-control" id="exampleFormControlInput1" type="number" name="borrowing" value="" >
+                                        <input class="form-control input-air-primary" id="exampleFormControlInput1" type="number" name="borrowing" value="" >
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label class="form-label" for="exampleFormControlInput1">Цитирование</label>
-                                        <input class="form-control" id="exampleFormControlInput1" type="number" name="citation" value="" >
+                                        <input class="form-control input-air-primary" id="exampleFormControlInput1" type="number" name="citation" value="" >
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label class="form-label" for="exampleFormControlInput1">Оригинальность</label>
-                                        <input class="form-control" id="exampleFormControlInput1" type="number" name="originality" value="" >
+                                        <input class="form-control input-air-primary" id="exampleFormControlInput1" type="number" name="originality" value="" >
                                     </div>
                                 </div>
                             </div>

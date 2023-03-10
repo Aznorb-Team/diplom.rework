@@ -51,24 +51,24 @@ class Application extends Model
     }
     public function mode()
     {
-        return $this->hasOne(Mode::class, 'id');
+        return $this->hasOne(Mode::class, 'id', 'mode_id');
     }
     public function type()
     {
-        return $this->hasOne(Type::class, 'id');
+        return $this->hasOne(Type::class, 'id', 'type_id');
     }
     public function direction()
     {
-        return $this->hasOne(Direction::class, 'id');
+        return $this->hasOne(Direction::class, 'id', 'direction_id');
     }
     public function teaching_materials(){
-        return $this->hasOne(Teaching_Material::class, 'id');
+        return $this->hasOne(Teaching_Material::class, 'id', 'teaching_materials_id');
     }
     public function anti_plagiarisms(){
-        return $this->hasOne(Anti_Plagiarism::class, 'id');
+        return $this->hasOne(Anti_Plagiarism::class, 'id', 'anti_plagiarism_id');
     }
     public function certificate_of_departments(){
-        return $this->hasOne(Certificate_Of_Department::class, 'id');
+        return $this->hasOne(Certificate_Of_Department::class, 'id', 'certificate_of_department_id');
     }
     public function app_survey()
     {

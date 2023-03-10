@@ -18,7 +18,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleFormControlInput1">Фамилия</label>
-                                    <input class="form-control" id="exampleFormControlInput1" type="text" value="{{auth()->user()->surname}}">
+                                    <input class="form-control input-air-primary" id="exampleFormControlInput1" type="text" value="{{auth()->user()->surname}}">
                                 </div>
                             </div>
                         </div>
@@ -26,7 +26,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleFormControlInput1">Имя</label>
-                                    <input class="form-control" id="exampleFormControlInput1" type="text" value="{{auth()->user()->name}}">
+                                    <input class="form-control input-air-primary" id="exampleFormControlInput1" type="text" value="{{auth()->user()->name}}">
                                 </div>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleFormControlInput1">Отчество</label>
-                                    <input class="form-control" id="exampleFormControlInput1" type="text" value="@if(auth()->user()->patronymic != null) {{auth()->user()->patronymic}} @endif">
+                                    <input class="form-control input-air-primary" id="exampleFormControlInput1" type="text" value="@if(auth()->user()->patronymic != null) {{auth()->user()->patronymic}} @endif">
                                 </div>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleFormControlInput1">Электронная почта</label>
-                                    <input class="form-control" id="exampleFormControlInput1" type="email" placeholder="name@example.com" value="{{auth()->user()->email}}">
+                                    <input class="form-control input-air-primary" id="exampleFormControlInput1" type="email" placeholder="name@example.com" value="{{auth()->user()->email}}">
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                             <div class="col">
                                 <div class="mb-3">
                                     <label class="form-label" for="exampleInputPassword2">Пароль</label>
-                                    <input class="form-control" id="exampleInputPassword2" type="password" required>
+                                    <input class="form-control input-air-primary" id="exampleInputPassword2" type="password" required>
                                 </div>
                             </div>
                         </div>

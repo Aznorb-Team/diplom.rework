@@ -108,13 +108,13 @@
                 </li>
                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="airplay"></i><span>Этапы проверки</span></a>
                   <ul class="nav-submenu menu-content">
-                    <li><a href="#">Подача заявки</a></li>
-                    <li><a href="#">Проверка на антиплагиат</a></li>
-                    <li><a href="#">Проверка сотрудниками РИС</a></li>
-                    <li><a href="#">Проверка на заседании РИС</a></li>
-                    <li><a href="#">Проверка сотрудниками УМС</a></li>
-                    <li><a href="#">Проверка на заседании УМС</a></li>
-                    <li><a href="#">Издательство</a></li>
+                    <li><a href="{{route('view.application', ['id' => 1])}}">Подача заявки</a></li>
+                    <li><a href="{{route('view.application', ['id' => 2])}}">Проверка на антиплагиат</a></li>
+                    <li><a href="{{route('view.application', ['id' => 3])}}">Проверка сотрудниками РИС</a></li>
+                    <li><a href="{{route('view.application', ['id' => 4])}}">Проверка на заседании РИС</a></li>
+                    <li><a href="{{route('view.application', ['id' => 5])}}">Проверка сотрудниками УМС</a></li>
+                    <li><a href="{{route('view.application', ['id' => 6])}}">Проверка на заседании УМС</a></li>
+                    <li><a href="{{route('view.application', ['id' => 7])}}">Издательство</a></li>
                   </ul>
                 </li>
                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="layout"></i><span>Редактор</span></a>

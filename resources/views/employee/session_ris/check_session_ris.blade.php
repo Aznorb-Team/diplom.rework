@@ -134,64 +134,92 @@
                       </div>
                     </div>
                   </div>
-                <form class="form theme-form" action='{{route('expert_ris.success', ['id'=> $application->id, 'survey_id' => $survey->id])}}' method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="card-body">
-                        <h4>{{$survey->title}}</h4>
+                  <div class="card-body">
+                        <h4>{{$app_survey[0]->survey->title}}</h4>
                         <h3 hidden>{{$number = 1}}</h3>
-                        @foreach($survey->questions as $question)
-                        @switch($question->type)
+                        @foreach($app_survey as $survey)
+                        @switch($survey->question->type)
                             @case(0)
                                 <div class="form-outline border px-2 py-2 input-air-primary">
-                                    <label class="col-form-label" for="typeNumber">{{$number}}) {{$question->title}}</label>
+                                    <label class="col-form-label" for="typeNumber">{{$number}}) {{$survey->question->title}}</label>
+                                    @if($survey->result == 'yes')
                                     <div class="form-check">
-                                        <input type="radio" name="{{$question->id}}" id="{{$question->id}}" value="yes" required>
-                                        <label class="col-form-label" for="{{$question->id}}" name="yes">
+                                        <input type="radio" name="{{$survey->question->id}}" id="{{$survey->question->id}}" value="yes" checked required>
+                                        <label class="col-form-label" for="{{$survey->question->id}}" name="yes">
                                         Да
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="radio" name="{{$question->id}}" id="{{$question->id}}" value="no" required>
-                                        <label class="col-form-label" for="{{$question->id}}" name="no">
+                                        <input type="radio" name="{{$survey->question->id}}" id="{{$survey->question->id}}" value="no" required>
+                                        <label class="col-form-label" for="{{$survey->question->id}}" name="no">
                                         Нет
                                         </label>
                                     </div>
+                                    @else
+                                    <div class="form-check">
+                                        <input type="radio" name="{{$survey->question->id}}" id="{{$survey->question->id}}" value="yes" required>
+                                        <label class="col-form-label" for="{{$survey->question->id}}" name="yes">
+                                        Да
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="{{$survey->question->id}}" id="{{$survey->question->id}}" value="no" checked required>
+                                        <label class="col-form-label" for="{{$survey->question->id}}" name="no">
+                                        Нет
+                                        </label>
+                                    </div>
+                                    @endif
                                 </div>
                                 <h3 hidden>{{$number = $number + 1}}</h3>
                                 @break
                             @case(1)
                                 <div class="form-outline border px-2 py-2 input-air-primary">
                                     <div class="form-floating">
-                                        <textarea class="form-control input-air-primary" placeholder="Leave a comment here" name="{{$question->id}}" id="{{$question->id}}" required></textarea>
-                                        <label class="col-form-label" for="floatingTextarea">{{$question->title}}</label>
+                                        <textarea class="form-control input-air-primary" placeholder="Leave a comment here" name="{{$survey->question->id}}" id="{{$survey->question->id}}" value='{{$survey->result}}' required>{{$survey->result}}</textarea>
+                                        <label class="col-form-label" for="floatingTextarea">{{$survey->question->title}}</label>
                                     </div>
                                 </div>
                                 @break
                             @default
                                 <div class="form-outline border px-2 py-2 input-air-primary">
-                                    <label class="col-form-label" for="typeNumber">{{$number}}) {{$question->title}}</label>
+                                    <label class="col-form-label" for="typeNumber">{{$number}}) {{$survey->question->title}}</label>
+                                    @if($survey->result == 'yes')
                                     <div class="form-check">
-                                        <input type="radio" name="{{$question->id}}" id="{{$question->id}}">
-                                        <label class="col-form-label" for="flexRadioDefault1">
+                                        <input type="radio" name="{{$survey->question->id}}" id="{{$survey->question->id}}" value="yes" checked required>
+                                        <label class="col-form-label" for="{{$survey->question->id}}" name="yes">
                                         Да
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="radio" name="{{$question->id}}" id="{{$question->id}}">
-                                        <label class="col-form-label" for="flexRadioDefault2">
+                                        <input type="radio" name="{{$survey->question->id}}" id="{{$survey->question->id}}" value="no" required>
+                                        <label class="col-form-label" for="{{$survey->question->id}}" name="no">
                                         Нет
                                         </label>
                                     </div>
+                                    @else
+                                    <div class="form-check">
+                                        <input type="radio" name="{{$survey->question->id}}" id="{{$survey->question->id}}" value="yes" required>
+                                        <label class="col-form-label" for="{{$survey->question->id}}" name="yes">
+                                        Да
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" name="{{$survey->question->id}}" id="{{$survey->question->id}}" value="no" checked required>
+                                        <label class="col-form-label" for="{{$survey->question->id}}" name="no">
+                                        Нет
+                                        </label>
+                                    </div>
+                                    @endif
                                 </div>
+                                
                                 <h3 hidden>{{$number = $number + 1}}</h3>
                         @endswitch
                         @endforeach
-                    </div>
-                    <div class="card-footer text-end">
-                        <button class="btn btn-primary" type="submit">Прошел</button>
-                        <a href="{{route('expert_ris.unsuccess', ['id'=> $application->id])}}"><button class="btn btn-danger" type="button">Не прошел</button></a>
-                    </div>
-                </form>
+                  </div>
+                  <div class="card-footer text-end">
+                    <a href="{{route('session_ris.success', ['id'=> $application->id])}}"><button class="btn btn-primary" type="button">Прошел</button></a>
+                    <a href="{{route('session_ris.unsuccess', ['id'=> $application->id])}}"><button class="btn btn-danger" type="button">Не прошел</button></a>
+                  </div>
             </div>
         </div>
       </div>

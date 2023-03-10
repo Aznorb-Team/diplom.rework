@@ -31,6 +31,7 @@ Route::group(['middleware'=>'auth'], function(){
         Route::post('/save.user_list', 'App\Http\Controllers\Admin\SaveUserListController')->name('save.user_list');
         Route::get('/role.list', 'App\Http\Controllers\Admin\RoleListController')->name('role.list');
         Route::get('/direction.list', 'App\Http\Controllers\Admin\DirectionListController')->name('direction.list');
+        Route::get('/view.application/{id}', 'App\Http\Controllers\Admin\ViewApplicationController')->name('view.application');
     });
     
     Route::group(['middleware'=>'user', 'prefix'=>'user'], function(){
@@ -47,8 +48,25 @@ Route::group(['middleware'=>'auth'], function(){
         Route::post('/antiplagiat.success/{id}', 'App\Http\Controllers\Employee\Antiplagiat\SuccessController')->name('antiplagiat.success');
         Route::get('/antiplagiat.unsuccess/{id}', 'App\Http\Controllers\Employee\Antiplagiat\UnSuccessController')->name('antiplagiat.unsuccess');
 
-        //ris
+        //expert ris
         Route::get('/expert_ris.check/{id}', 'App\Http\Controllers\Employee\Expert_Ris\CheckRisController')->name('expert_ris.check');
+        Route::post('/expert_ris.success/{id}/{survey_id}', 'App\Http\Controllers\Employee\Expert_Ris\SuccessController')->name('expert_ris.success');
+        Route::get('/expert_ris.unsuccess/{id}', 'App\Http\Controllers\Employee\Expert_Ris\UnSuccessController')->name('expert_ris.unsuccess');
+
+        //session ris
+        Route::get('/session_ris.check/{id}', 'App\Http\Controllers\Employee\Session_Ris\CheckSessionRisController')->name('session_ris.check');
+        Route::get('/session_ris.success/{id}', 'App\Http\Controllers\Employee\Session_Ris\SuccessController')->name('session_ris.success');
+        Route::get('/session_ris.unsuccess/{id}', 'App\Http\Controllers\Employee\Session_Ris\UnSuccessController')->name('session_ris.unsuccess');
+
+        //expert ums
+        Route::get('/expert_ums.check/{id}', 'App\Http\Controllers\Employee\Expert_Ums\CheckUmsController')->name('expert_ums.check');
+        Route::post('/expert_ums.success/{id}', 'App\Http\Controllers\Employee\Expert_Ums\SuccessController')->name('expert_ums.success');
+        Route::get('/expert_ums.unsuccess/{id}', 'App\Http\Controllers\Employee\Expert_Ums\UnSuccessController')->name('expert_ums.unsuccess');
+
+        //session ums
+        Route::get('/session_ums.check/{id}', 'App\Http\Controllers\Employee\Session_Ums\CheckSessionUmsController')->name('session_ums.check');
+        Route::get('/session_ums.success/{id}', 'App\Http\Controllers\Employee\Session_Ums\SuccessController')->name('session_ums.success');
+        Route::get('/session_ums.unsuccess/{id}', 'App\Http\Controllers\Employee\Session_Ums\UnSuccessController')->name('session_ums.unsuccess');
     });
 
     Route::get('/logout', 'App\Http\Controllers\Auth\LogOutController')->name('logout');

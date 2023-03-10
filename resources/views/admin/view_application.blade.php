@@ -1,7 +1,7 @@
 @extends('layouts.layout')
-@section('title', 'user')
+@section('title', 'admin')
 @section('content')
-@include('layouts.navigations.user_nav')
+@include('layouts.navigations.admin_nav')
 <!-- Page Sidebar Ends-->
 <div class="page-body">
     <!-- Container-fluid starts-->
@@ -11,7 +11,7 @@
             <div class="card">
               <div class="card-header">
                 <h5>Список поданных заявок</h5>
-                <span></span>
+                <span>На данной панели можно увидеть список поданных вами заявок, здесь можно отслеживать их статус, а также редактировать и отменять.</span>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -26,7 +26,10 @@
                         <tr role="row">
                           <th class="sorting_asc" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" >№</th>
                           <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Наименование</th>
-                          <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" >Действия</th>
+                          <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" >Эксперт</th>
+                          <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" >Статус этапа заявки</th>
+                          <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" >Статус занятости заявки</th>
+                          <th class="sorting" tabindex="0" aria-controls="basic-1" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" >Автор</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -34,29 +37,12 @@
                           <tr role="row" class="odd">
                             <td class="sorting_1">{{$application->id}}</td>
                             <td>{{$application->title}}</td>
-                            @switch(auth()->user()->role_id)
-                                @case(2)
-                                    <td><a href="{{route('antiplagiat.check', ['id' => $application->id])}}"><button class="btn btn-primary" type="button">Взять в работу</button></a></td>
-                                    @break
-                                @case(3)
-                                    <td><a href="{{route('expert_ris.check', ['id' => $application->id])}}"><button class="btn btn-primary" type="button">Взять в работу</button></a></td>
-                                    @break
-                                @case(4)
-                                    <td><a href="{{route('session_ris.check', ['id' => $application->id])}}"><button class="btn btn-primary" type="button">Взять в работу</button></a></td>
-                                    @break
-                                @case(5)
-                                    <td><a href="{{route('expert_ums.check', ['id' => $application->id])}}"><button class="btn btn-primary" type="button">Взять в работу</button></a></td>
-                                    @break
-                                @case(6)
-                                    <td><a href="{{route('session_ums.check', ['id' => $application->id])}}"><button class="btn btn-primary" type="button">Взять в работу</button></a></td>
-                                    @break
-                                @case(7)
-                                    <td><a href="#"><button class="btn btn-primary" type="button">Взять в работу</button></a></td>
-                                    @break
-                                @default
-                                    
-                            @endswitch
-                            
+                            <td>{{$application->employee}}</td>
+                            <td>{{$application->status_application->title}}</td>
+                            <td>{{$application->status_work->title}}</td>
+                            <td>
+                                {{$users->get($application->user_id)->surname}} {{$users->get($application->user_id)->name}} {{$users->get($application->user_id)->patronymic}} 
+                            </td>
                           </tr>
                         @endforeach
                       </tbody>

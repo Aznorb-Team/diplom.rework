@@ -41,7 +41,7 @@ class Service{
         $cert->save();
 
         $application = Application::create([
-            'title' => $request->name,
+            'title' => $request->title,
             'user_id' => $user->id,
             'status_application_id' => 2,
             'mode_id' => $request->mode,

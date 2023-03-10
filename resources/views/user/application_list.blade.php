@@ -18,7 +18,7 @@
                   <div id="basic-1_wrapper" class="dataTables_wrapper no-footer">
                     <div id="basic-1_filter" class="dataTables_filter">
                       <label>Поиск:
-                        <input type="search" class="" placeholder="" aria-controls="basic-1" data-bs-original-title="" title="">
+                        <input type="search" class="input-air-primary" placeholder="" aria-controls="basic-1" data-bs-original-title="" title="">
                       </label>
                     </div>
                     <table class="display dataTable no-footer" id="basic-1" role="grid" aria-describedby="basic-1_info">
@@ -37,7 +37,7 @@
                           <tr role="row" class="odd">
                             <td class="sorting_1">{{$application->id}}</td>
                             <td>{{$application->title}}</td>
-                            <td>{{$application->employee}}</td>
+                            <td>@if($application->employee != null){{$application->employee->surname}} {{$application->employee->name}} {{$application->employee->patronymic}}@endif</td>
                             <td>{{$application->status_application->title}}</td>
                             <td>{{$application->status_work->title}}</td>
                             <td>
