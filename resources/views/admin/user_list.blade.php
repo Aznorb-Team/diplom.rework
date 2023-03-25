@@ -41,16 +41,23 @@
                             <td>{{$user->email}}</td>
                             <td>
                               <div class="mb-3">
-                                <select class="form-select input-air-primary w-auto" id="mode" name="user[{{$user->id}}][role_id]" required>
-                                    @foreach($roles as $role)
-                                        @if($user->role->id == $role->id)
-                                          <option value="{{$role->id}}" selected>{{$role->title}}</option>
-                                        @else
-                                          <option value="{{$role->id}}">{{$role->title}}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
+                                  <select class="form-select input-air-primary w-auto" id="mode" name="user[{{$user->id}}][role_id]" required>
+                                      @foreach($roles as $role)
+                                          @if($user->role->id == $role->id)
+                                            <option value="{{$role->id}}" selected>{{$role->title}}</option>
+                                          @else
+                                            <option value="{{$role->id}}">{{$role->title}}</option>
+                                          @endif
+                                      @endforeach
+                                      
+                                  </select>
+                                  <a class="" href="#">
+                                    <i data-feather="delete"></i>
+                                  </a>
                               </div>
+                              <a href="#">
+                                Добавить
+                              </a>
                             </td>
                             <td>
                               <div class="mb-3">
@@ -64,7 +71,13 @@
                                         @endif
                                     @endforeach
                                 </select>
-                              </div>
+                                <a class="" href="#">
+                                  <i data-feather="delete"></i>
+                                </a>
+                            </div>
+                            <a href="#">
+                              Добавить
+                            </a>
                             </td>
                           </tr>
                         @endforeach

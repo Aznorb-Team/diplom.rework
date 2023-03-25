@@ -91,9 +91,11 @@
             <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
             <div id="mainnav">           
               <ul class="nav-menu custom-scrollbar">
+                
                 <li class="back-btn">
                   <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
                 </li>
+                @if(auth()->user()->role_id == 1)
                 <li class="sidebar-main-title">
                   <div>
                     <h6>Панель пользователя</h6>
@@ -115,6 +117,7 @@
                     <li><a href="{{route('application.list')}}">Список поданных заявок</a></li>
                   </ul>
                 </li>
+                @endif
                 @if(auth()->user()->role_id >= 2)
                 <li class="sidebar-main-title">
                   <div>

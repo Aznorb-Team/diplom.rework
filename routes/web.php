@@ -31,7 +31,11 @@ Route::group(['middleware'=>'auth'], function(){
         Route::post('/save.user_list', 'App\Http\Controllers\Admin\SaveUserListController')->name('save.user_list');
         Route::get('/role.list', 'App\Http\Controllers\Admin\RoleListController')->name('role.list');
         Route::get('/direction.list', 'App\Http\Controllers\Admin\DirectionListController')->name('direction.list');
+        Route::post('/direction.add', 'App\Http\Controllers\Admin\CreateDirectionController')->name('direction.add');
+        Route::post('/direction.delete/{id}', 'App\Http\Controllers\Admin\DeleteDirectionController')->name('direction.delete');
         Route::get('/view.application/{id}', 'App\Http\Controllers\Admin\ViewApplicationController')->name('view.application');
+
+        Route::get('/edit.steps', 'App\Http\Controllers\Admin\EditStepsController')->name('edit.steps');
     });
     
     Route::group(['middleware'=>'user', 'prefix'=>'user'], function(){

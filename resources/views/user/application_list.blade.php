@@ -42,7 +42,7 @@
                             <td>{{$application->status_work->title}}</td>
                             <td>
                               <a href="#"><button class="btn btn-warning" type="button">Редактировать</button></a>
-                              <a href="#"><button class="btn btn-danger" type="button">Удалить</button></a>
+                              <a href="#"><button class="btn btn-danger" type="button">Отменить</button></a>
                             </td>
                           </tr>
                         @endforeach
